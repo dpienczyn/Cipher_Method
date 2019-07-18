@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class SzygrCezara {
+public class CaesarCode {
 
 	public void start() {
 		System.out.println("Program obs³uguje dwa pliki. Z jednego pobiera dane które szyfruje liczba któr¹ wprowadzisz na ekran w konsoli. Nastepnie zaszyfrowane dane zapisuje do pliku drugiego");
@@ -89,7 +89,6 @@ public class SzygrCezara {
 				if(character==32)
 				{
 					a = character;
-					System.out.println(character);
 				}
 				if(character>=65&&character<=90)
 				{
@@ -99,7 +98,7 @@ public class SzygrCezara {
 				{
 					a=97+(character-keyFour)%26;
 				}
-				System.out.println((char)a);
+				
 				write.print((char)a);
 			}
 			p.close();
@@ -113,15 +112,15 @@ public class SzygrCezara {
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		
-		SzygrCezara szyfr = new SzygrCezara();
-		szyfr.start();
-		String w = szyfr.words();
-		byte[] v = szyfr.replace(w);
-		int key = szyfr.key();
-		szyfr.compare(key);
-		szyfr.writeEncode(v, key);
-		char c = szyfr.question();
-		szyfr.wordDecode(c, key);
+		CaesarCode code = new CaesarCode();
+		code.start();
+		String w = code.words();
+		byte[] v = code.replace(w);
+		int key = code.key();
+		code.compare(key);
+		code.writeEncode(v, key);
+		char c = code.question();
+		code.wordDecode(c, key);
 	}
 }
 
