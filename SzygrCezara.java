@@ -7,12 +7,12 @@ import java.util.Scanner;
 
 public class SzygrCezara {
 
-	public void Start() {
+	public void start() {
 		System.out.println("Program obs³uguje dwa pliki. Z jednego pobiera dane które szyfruje liczba któr¹ wprowadzisz na ekran w konsoli. Nastepnie zaszyfrowane dane zapisuje do pliku drugiego");
 		System.out.println("¯ycze udanej zabawy!");
 	}
 	
-	public String Words() throws FileNotFoundException{
+	public String words() throws FileNotFoundException{
 		String Filepath = "C:/Users/Dominika/eclipse-workspace/Tasks/bin/Szyfr/tekst.txt";
 		File f = new File(Filepath);
 		Scanner load = new Scanner(f);
@@ -62,7 +62,7 @@ public class SzygrCezara {
 		write.close();
 	}
 	
-	public char Question() {
+	public char question() {
 		Scanner read = new Scanner(System.in);
 		System.out.println("Czy chcesz odkodowaæ zadanie? Jeœli tak to wciœnij 't' jeœli nie to wciœnij 'n'");
 		char t = read.next().charAt(0);
@@ -70,7 +70,6 @@ public class SzygrCezara {
 	}
 	
 	public void wordDecode(char t, int key) throws FileNotFoundException{
-		
 		String FilePathDecode = "C:/Users/Dominika/eclipse-workspace/Tasks/bin/Szyfr/zakodowany.txt";
 		String FilePathWrite = "C:/Users/Dominika/eclipse-workspace/Tasks/bin/Szyfr/odkodowany.txt";
 		if(t=='t'){
@@ -86,9 +85,10 @@ public class SzygrCezara {
 				k= 26-key;
 				int keyThree = 65-k;
 				int keyFour = 97-k;
+				
 				if(character==32)
 				{
-					a=character;
+					a = character;
 					System.out.println(character);
 				}
 				if(character>=65&&character<=90)
@@ -114,13 +114,13 @@ public class SzygrCezara {
 	public static void main(String[] args) throws FileNotFoundException {
 		
 		SzygrCezara szyfr = new SzygrCezara();
-		szyfr.Start();
-		String w = szyfr.Words();
+		szyfr.start();
+		String w = szyfr.words();
 		byte[] v = szyfr.replace(w);
 		int key = szyfr.key();
 		szyfr.compare(key);
 		szyfr.writeEncode(v, key);
-		char c = szyfr.Question();
+		char c = szyfr.question();
 		szyfr.wordDecode(c, key);
 	}
 }
