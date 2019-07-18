@@ -13,7 +13,7 @@ public class CaesarCode {
 	}
 	
 	public String words() throws FileNotFoundException{
-		String Filepath = "C:/Users/Dominika/eclipse-workspace/Tasks/bin/Szyfr/tekst.txt";
+		String Filepath = "C:/Users/Dominika/eclipse-workspace/Tasks/bin/Szyfr/text.txt";
 		File f = new File(Filepath);
 		Scanner load = new Scanner(f);
 		String word;
@@ -42,7 +42,7 @@ public class CaesarCode {
 	}
 	
 	public void writeEncode(byte[] b, int key) throws FileNotFoundException{
-		String FilePathEncode = "C:/Users/Dominika/eclipse-workspace/Tasks/bin/Szyfr/zakodowany.txt";
+		String FilePathEncode = "C:/Users/Dominika/eclipse-workspace/Tasks/bin/Szyfr/encode.txt";
 		PrintWriter write = new PrintWriter(FilePathEncode);
 		for(byte n:b) {
 			int h = 0;
@@ -70,8 +70,8 @@ public class CaesarCode {
 	}
 	
 	public void wordDecode(char t, int key) throws FileNotFoundException{
-		String FilePathDecode = "C:/Users/Dominika/eclipse-workspace/Tasks/bin/Szyfr/zakodowany.txt";
-		String FilePathWrite = "C:/Users/Dominika/eclipse-workspace/Tasks/bin/Szyfr/odkodowany.txt";
+		String FilePathDecode = "C:/Users/Dominika/eclipse-workspace/Tasks/bin/Szyfr/encode.txt";
+		String FilePathWrite = "C:/Users/Dominika/eclipse-workspace/Tasks/bin/Szyfr/decode.txt";
 		if(t=='t'){
 			File file = new File(FilePathDecode);
 			Scanner read = new Scanner(file);
